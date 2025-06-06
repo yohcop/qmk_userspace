@@ -2,6 +2,18 @@
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
 
+## My notes
+
+```
+./run-docker.sh
+qmk setup
+qmk config user.overlay_dir=/code
+cd /code
+qmk json2c -o keyboards/crkbd/rev1/keymaps/yohcop/keymap.c keyboards/crkbd/rev1/keymaps/yohcop/layout.json
+qmk compile -kb crkbd -km yohcop
+qmk flash -kb crkbd -km yohcop
+```
+
 ## Howto configure your build targets
 
 1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
